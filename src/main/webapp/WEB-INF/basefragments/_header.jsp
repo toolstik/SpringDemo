@@ -3,10 +3,10 @@
       <h1>My Site</h1>
    </div>
  
-   <div style="float: right; padding: 10px; text-align: right;">
+   <%-- <div style="float: right; padding: 10px; text-align: right;">
  
       Search <input name="search">
  
-   </div>
+   </div> --%>
  
 </div>
