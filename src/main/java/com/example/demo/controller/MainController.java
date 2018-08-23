@@ -21,5 +21,15 @@ public class MainController {
         model.addAttribute("email", "...");
         return "contactusPage";
     }
+
+    @RequestMapping(value = { "/products" }, method = RequestMethod.GET)
+    public String productsPage(Model model) {
+        return "productsPage";
+    }
+
+    @RequestMapping(value = { "/users" }, method = RequestMethod.GET)
+    public String usersPage(Model model) {
+        return "usersPage";
+    }
      
 }
