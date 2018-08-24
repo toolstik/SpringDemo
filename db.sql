@@ -26,6 +26,7 @@ CREATE TABLE Role
 (
     Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
     , Name VARCHAR(255)
+    , INDEX (Name)
 );
 
 CREATE TABLE User
@@ -35,6 +36,7 @@ CREATE TABLE User
     , Pwd VARCHAR(255)  
     , CreateDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     , Gender BIT(1)
+    , INDEX (Name)
 );
 
 CREATE TABLE UserRoles
@@ -44,6 +46,7 @@ CREATE TABLE UserRoles
     , PRIMARY KEY (UserId, RoleId)
     , FOREIGN KEY (UserId) REFERENCES User(Id)
     , FOREIGN KEY (RoleId) REFERENCES Role(Id)
+    , INDEX (UserId)
 );
 
 INSERT Role (Name)
