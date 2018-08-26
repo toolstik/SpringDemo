@@ -2,7 +2,6 @@ package com.example.demo.services;
 
 import java.util.List;
 import com.example.demo.dal.dao.User;
-import com.example.demo.dal.repo.RoleRepository;
 import com.example.demo.dal.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

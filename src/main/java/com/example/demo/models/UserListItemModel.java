@@ -2,7 +2,7 @@ package com.example.demo.models;
 
 import java.util.Date;
 
-public class UserModel {
+public class UserListItemModel {
 
 	private String name;
 
