@@ -24,7 +24,7 @@ public class UserController{
     @RequestMapping(value = { "/users" }, method = RequestMethod.GET)
     public ModelAndView usersPage(Model model) {
         ModelAndView result = new ModelAndView();
-        result.setViewName("usersPage");
+        result.setViewName("usersListPage");
         List<UserListItemModel> users = userService.findAll()
         		.stream()
         		.map(new Function<User, UserListItemModel>(){

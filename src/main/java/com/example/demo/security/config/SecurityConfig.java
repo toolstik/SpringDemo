@@ -68,9 +68,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/products*").hasAuthority("ROLE_USER")
             .antMatchers("/login*").permitAll()
             .anyRequest().authenticated()
-            
+
             .and()
             .formLogin()
-            .successHandler(myAuthenticationSuccessHandler());
+            .successHandler(myAuthenticationSuccessHandler())
+
+            // .and()
+            // .csrf().disable()
+            ;
     }
 }

@@ -2,7 +2,7 @@
 <html>
 <head>
 <title><tiles:getAsString name="title" /></title>
-<link href="webjars/bootstrap/4.1.1/css/bootstrap.min.css"
+<link href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css"
         rel="stylesheet">
 </head>
  
@@ -14,10 +14,10 @@
             </td>
         </tr>
         <tr>
-            <td width="20%" nowrap="nowrap">
+            <td width="10%" nowrap="nowrap">
                  <tiles:insertAttribute name="menu" />
              </td>
-            <td width="80%">
+            <td width="90%">
                  <tiles:insertAttribute name="body" />
              </td>
         </tr>
