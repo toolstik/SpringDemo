@@ -8,6 +8,7 @@ CREATE TABLE ProductType
 (
     Id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
     , Name VARCHAR(255)
+    , INDEX (Name)
 );
 
 CREATE TABLE Product
@@ -17,7 +18,7 @@ CREATE TABLE Product
     , Price DECIMAL(10, 2)
     , Descr VARCHAR(1000)
     , Qty INT
-    , CreateDate DATETIME
+    , CreateDate datetime DEFAULT CURRENT_TIMESTAMP
     , ProductTypeId INT
     , FOREIGN KEY (ProductTypeId) REFERENCES ProductType(Id)
 );
@@ -49,10 +50,12 @@ CREATE TABLE UserRoles
     , INDEX (UserId)
 );
 
+########## INSERT DATA ############
+
 INSERT Role (Name)
 VALUES 
-      ('ADMIN')
-    , ('USER')
+  ('ADMIN')
+ ,('USER')
 ;
 
 INSERT User (Name, Pwd, Gender)
@@ -72,4 +75,26 @@ FROM (
     ) names(user_name, role_name)
     LEFT JOIN User u on u.Name = names.user_name
     LEFT JOIN Role r on r.Name = names.role_name
+;
+
+INSERT ProductType (Name)
+VALUES
+  ('Meal')
+ ,('Health')
+ ,('Books')
+;
+
+INSERT Product(Name, Descr, Price, Qty, ProductTypeId)
+SELECT items.name,
+       items.descr,
+       items.price,
+       items.qty,
+       pt.Id
+FROM (
+                  SELECT 'Bread',                   'Fresh tasty bread',            15.5, 100, 'Meal'
+        UNION ALL SELECT 'Milk',                    'cow''s milk 2.5%',             36.7, 10,  'Meal'
+        UNION ALL SELECT 'Strepsils',               'pills for cough',              52,   5,   'Health'
+        UNION ALL SELECT 'Harry Potter, 7 volumes', 'Harry Potter full collection', 2999, 3,   'Books'
+    ) items(name, descr, price, qty, type)
+    LEFT JOIN ProductType pt on pt.Name = items.type
 ;
