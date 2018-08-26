@@ -2,6 +2,8 @@
 <html>
 <head>
 <title><tiles:getAsString name="title" /></title>
+<link href="webjars/bootstrap/4.1.1/css/bootstrap.min.css"
+        rel="stylesheet">
 </head>
  
 <body>
